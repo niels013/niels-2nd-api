@@ -29,3 +29,15 @@ def proxima_lua_cheia():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+class Pessoa(BaseModel):
+    nome: str
+    idade: int
+
+@app.post("/pessoa")
+def criar_pessoa(pessoa: Pessoa):
+    return {
+        "mensagem": "Pessoa recebida com sucesso",
+        "dados": pessoa
+    }
