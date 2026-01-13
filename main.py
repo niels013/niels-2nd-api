@@ -23,4 +23,9 @@ def dias_faltando(data: str):
 def proxima_lua_cheia():
     today = datetime.now()
     next_full = ephem.next_full_moon(today)
+
     return {"proxima_lua_cheia": next_full.datetime().strftime("%Y-%m-%d %H:%M:%S")}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
